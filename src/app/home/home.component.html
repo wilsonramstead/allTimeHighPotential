@@ -1,0 +1,129 @@
+
+<div class="homeContainer">
+    <div class="header">
+        <h1>See Your All Time High Potential</h1>
+        <hr>
+        <p>Select your stock/crypto below and input your share amount.</p>
+    </div>
+    <div class="innerBox">
+        <form>
+            <div class="assetForm">
+                <div class="upperSection">
+                    <h4 *ngIf="assetType == 'stock'" class="fancyLabel">Stock</h4>
+                    <button *ngIf="assetType == 'stock'" class="buttonNormal" (click)="changeAssetType('crypto')">Switch to Crypto</button>
+                    <h4 *ngIf="assetType == 'crypto'" class="fancyLabel">Crypto</h4>
+                    <button *ngIf="assetType == 'crypto'" class="buttonNormal" (click)="changeAssetType('stock')">Switch to Stock</button>
+                </div>
+                <div class="assetInput">
+                    <div class="left">
+                        <h6>Asset Name:</h6>
+                    </div> 
+                    <div class="right">
+                        <select *ngIf="assetType == 'stock'" (change)="getPriceInfo($event.target.value)" [(ngModel)]="newAsset.assetName" name="newAsset.assetName" required>
+                            <option value="Apple">Apple</option>
+                            <option value="Microsoft">Microsoft</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Nvidia">Nvidia</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Unity">Unity</option>
+                        </select>
+                        <select *ngIf="assetType == 'crypto'" (change)="getPriceInfo($event.target.value)" [(ngModel)]="newAsset.assetName" name="newAsset.assetName" required>
+                            <option value="Atom">Cosmos Hub (Atom)</option>
+                            <option value="Avalanche">Avalanche</option>
+                            <option value="Bitcoin">Bitcoin</option>
+                            <option value="Cardano">Cardano</option>
+                            <option value="Ethereum">Ethereum</option>
+                            <option value="Polygon">Polygon</option>
+                            <option value="Sand">Sand</option>
+                            <option value="Solana">Solana</option>
+                            <option value="Vechain">Vechain</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="assetInput">
+                    <div class="left">
+                        <h6>Amount:</h6>
+                    </div>
+                    <div class="right">
+                        <input type="number" [(ngModel)]="newAsset.assetAmount" name="newAsset.assetAmount" required/>
+                    </div>
+                </div>
+                <div class="assetButtons">
+                    <button class="buttonGreen" (click)="addAsset()">Go</button>
+                    <button class="buttonRed" (click)="clearAssets()">Clear Assets</button>
+                </div>
+            </div>
+        </form>
+        <!-- <hr> -->
+        <br>
+        <h4 class="fancyLabel">Your Asset List:</h4>
+
+        <div *ngIf="mobile == 'no'" class="container">
+            <div class="row headerColumn" style="border-bottom: 3px solid black;"> 
+                <div class="col"><h6>Name</h6></div>
+                <div class="col"><h6>ATH Price</h6></div>
+                <div class="col"><h6>Current Price</h6></div>
+                <div class="col"><h6>Your Share #</h6></div>
+                <div class="col"><h6>Current Value</h6> </div>
+                <div class="col"><h6>PV (ATH)</h6></div>
+            </div>
+            <div *ngFor="let asset of allAssets; let i = index" class="row">
+                <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
+                <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
+                <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
+                <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
+                <div class="col"><h6>${{ asset['todayValue'] }}</h6> </div>
+                <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6> </div>
+            </div>
+            <div class="row headerColumn" style="border-top: 3px solid black;">
+                <div class="col"><h6></h6></div>
+                <div class="col"><h6></h6></div>
+                <div class="col"><h6></h6></div>
+                <div class="col"><h6>Total:</h6></div>
+                <div class="col"><h6>{{ totalCurrentValue }}</h6></div>
+                <div class="col"><h6>{{ totalATHvalue }}</h6></div>
+            </div>
+        </div>
+
+        <div *ngIf="mobile == 'yes'" class="mobileContainer">
+            <div *ngFor="let asset of allAssets; let i = index">
+                <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
+                    <div class="col" style="border-right: 2px solid black"><h6><strong>Name</strong></h6></div>
+                    <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
+                </div>
+                <div class="row">
+                    <div class="col" style="border-right: 2px solid black"><h6>Current Price</h6></div>
+                    <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
+                </div>
+
+                <div class="row">
+                    <div class="col" style="border-right: 2px solid black"><h6>ATH Price</h6></div>
+                    <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
+                </div>
+
+                <div class="row">
+                    <div class="col" style="border-right: 2px solid black"><h6>Holdings Amount</h6></div>
+                    <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
+                </div>
+
+                <div class="row">
+                    <div class="col" style="border-right: 2px solid black"><h6>Current Value</h6></div>
+                    <div class="col"><h6>${{ asset['todayValue'] }}</h6></div>
+                </div>
+
+                <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px;">
+                    <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
+                    <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6></div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
+                <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Current Value</strong></h6></div>
+                <div class="col"><h6><strong>${{ totalCurrentValue }}</strong></h6></div>
+            </div>
+            <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
+                <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Potential Value</strong></h6></div>
+                <div class="col"><h6><strong>${{ totalATHvalue }}</strong></h6></div>
+            </div>
+        </div>
+    </div>
+</div>
