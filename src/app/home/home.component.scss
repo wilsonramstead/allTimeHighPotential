@@ -28,11 +28,16 @@
     min-height: 400px;
     text-align: left;
   }
+  .innerBoxText {
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
   .mobileContainer {
     text-align: left;
     min-height: 400px;
     width: 100%;
-    // width: 96%;
     padding-bottom: 50px;
     .col {
       background: rgba(255, 255, 255, 0.425);
