@@ -57,7 +57,7 @@
         <!-- <hr> -->
         <br>
         <h4 class="fancyLabel">Your Asset List:</h4>
-
+        <!--  Normal container -->
         <div *ngIf="mobile == 'no'" class="container">
             <div class="row headerColumn" style="border-bottom: 3px solid black;"> 
                 <div class="col"><h6>Name</h6></div>
@@ -84,46 +84,49 @@
                 <div class="col"><h6>{{ totalATHvalue }}</h6></div>
             </div>
         </div>
-
-        <div *ngIf="mobile == 'yes'" class="mobileContainer">
-            <div *ngFor="let asset of allAssets; let i = index">
+        <!-- Mobile container -->
+        <div style="padding: 25px;">
+            <div *ngIf="mobile == 'yes'" class="mobileContainer">
+                <div *ngFor="let asset of allAssets; let i = index">
+                    <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
+                        <div class="col" style="border-right: 2px solid black"><h6><strong>Name</strong></h6></div>
+                        <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="border-right: 2px solid black"><h6>Current Price</h6></div>
+                        <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col" style="border-right: 2px solid black"><h6>ATH Price</h6></div>
+                        <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col" style="border-right: 2px solid black"><h6>Holdings Amount</h6></div>
+                        <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col" style="border-right: 2px solid black"><h6>Current Value</h6></div>
+                        <div class="col"><h6>${{ asset['todayValue'] }}</h6></div>
+                    </div>
+    
+                    <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px;">
+                        <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
+                        <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6></div>
+                    </div>
+                </div>
                 <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
-                    <div class="col" style="border-right: 2px solid black"><h6><strong>Name</strong></h6></div>
-                    <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
+                    <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Current Value</strong></h6></div>
+                    <div class="col"><h6><strong>${{ totalCurrentValue }}</strong></h6></div>
                 </div>
-                <div class="row">
-                    <div class="col" style="border-right: 2px solid black"><h6>Current Price</h6></div>
-                    <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
+                <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
+                    <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Potential Value</strong></h6></div>
+                    <div class="col"><h6><strong>${{ totalATHvalue }}</strong></h6></div>
                 </div>
-
-                <div class="row">
-                    <div class="col" style="border-right: 2px solid black"><h6>ATH Price</h6></div>
-                    <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
-                </div>
-
-                <div class="row">
-                    <div class="col" style="border-right: 2px solid black"><h6>Holdings Amount</h6></div>
-                    <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
-                </div>
-
-                <div class="row">
-                    <div class="col" style="border-right: 2px solid black"><h6>Current Value</h6></div>
-                    <div class="col"><h6>${{ asset['todayValue'] }}</h6></div>
-                </div>
-
-                <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px;">
-                    <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
-                    <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6></div>
-                </div>
-            </div>
-            <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
-                <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Current Value</strong></h6></div>
-                <div class="col"><h6><strong>${{ totalCurrentValue }}</strong></h6></div>
-            </div>
-            <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
-                <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Potential Value</strong></h6></div>
-                <div class="col"><h6><strong>${{ totalATHvalue }}</strong></h6></div>
             </div>
         </div>
+       
     </div>
 </div>

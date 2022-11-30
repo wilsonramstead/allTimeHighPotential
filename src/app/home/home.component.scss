@@ -31,7 +31,8 @@
   .mobileContainer {
     text-align: left;
     min-height: 400px;
-    width: 96%;
+    width: 100%;
+    // width: 96%;
     padding-bottom: 50px;
     .col {
       background: rgba(255, 255, 255, 0.425);
@@ -50,14 +51,18 @@
       margin-bottom: 2%;
     }
     button {
+      color: black;
       border: 2px solid black;
       border-radius: 15px;
       min-height: 30px;
       background: none;
-      width: 150px;
+      width: 135px;
+      height: 30px;
     }
     .buttonNormal {
-      background: #ececece1;
+      background: #ececec34;
+      width: 170px;
+      border: 1px solid black;
     }
     .buttonRed {
       background: #fd9f9fee;
