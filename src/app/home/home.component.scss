@@ -29,6 +29,18 @@
       font-weight: 400;
     }
   }
+  .mobileFooter {
+    width: 100%;
+    text-align: center;
+    margin-top: 100%;
+  }
+  .normalFooter {
+    width: 100%;
+    padding-right: 4%;
+    text-align: center;
+    position: absolute;
+    bottom: 2%;
+  }
   .innerBox {
     width: 100%;
     min-height: 400px;
@@ -44,7 +56,8 @@
     text-align: left;
     min-height: 400px;
     width: 100%;
-    padding-bottom: 50px;
+    padding: 25px;
+    padding-bottom: 0px;
     .col {
       background: rgba(255, 255, 255, 0.425);
       h6 {
@@ -215,6 +228,7 @@
     visibility: unset;
     border: 2px solid black;
     background: #eeeeeec5;
+    margin-bottom: 5%;
     .headerColumn .col h6 {
       font-weight: 700;
     }
