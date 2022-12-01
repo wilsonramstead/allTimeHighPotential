@@ -35,11 +35,7 @@
     margin-top: 100%;
   }
   .normalFooter {
-    width: 100%;
-    padding-right: 4%;
-    text-align: center;
-    position: absolute;
-    bottom: 2%;
+    visibility: hidden;
   }
   .innerBox {
     width: 100%;
@@ -175,6 +171,21 @@
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 
   .mobileContainer {
+    visibility: hidden;
+  }
+
+  .normalFooter {
+    visibility: unset;
+    width: 100%;
+    padding-right: 4%;
+    text-align: center;
+    position: absolute;
+    bottom: 2%;
+    h6 {
+      font-size: 0.8rem;
+    }
+  }
+  .mobileFooter {
     visibility: hidden;
   }
 
