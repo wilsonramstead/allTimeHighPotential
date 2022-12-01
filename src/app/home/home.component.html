@@ -12,7 +12,9 @@
                     <h4 *ngIf="assetType == 'stock'" class="fancyLabel">Stock</h4>
                     <button *ngIf="assetType == 'stock'" class="buttonNormal" (click)="changeAssetType('crypto')">Switch to Crypto</button>
                     <h4 *ngIf="assetType == 'crypto'" class="fancyLabel">Crypto</h4>
-                    <button *ngIf="assetType == 'crypto'" class="buttonNormal" (click)="changeAssetType('stock')">Switch to Stock</button>
+                    <button *ngIf="assetType == 'crypto'" class="buttonNormal" (click)="changeAssetType('ETFs')">Switch to ETFs</button>
+                    <h4 *ngIf="assetType == 'ETFs'" class="fancyLabel">ETFs</h4>
+                    <button *ngIf="assetType == 'ETFs'" class="buttonNormal" (click)="changeAssetType('stock')">Switch to Stock</button>
                 </div>
                 <div class="assetInput">
                     <div class="left">
@@ -20,23 +22,44 @@
                     </div> 
                     <div class="right">
                         <select *ngIf="assetType == 'stock'" (change)="getPriceInfo($event.target.value)" [(ngModel)]="newAsset.assetName" name="newAsset.assetName" required>
+                            <option value="Amazon">Amazon</option>
                             <option value="Apple">Apple</option>
-                            <option value="Microsoft">Microsoft</option>
                             <option value="Facebook">Facebook</option>
+                            <option value="Google">Google</option>
+                            <option value="Matterport">Matterport</option>
+                            <option value="Microsoft">Microsoft</option>
+                            <option value="Nike">Nike</option>
                             <option value="Nvidia">Nvidia</option>
+                            <option value="Roblox">Roblox</option>
+                            <option value="Target">Target</option>
                             <option value="Tesla">Tesla</option>
                             <option value="Unity">Unity</option>
                         </select>
                         <select *ngIf="assetType == 'crypto'" (change)="getPriceInfo($event.target.value)" [(ngModel)]="newAsset.assetName" name="newAsset.assetName" required>
-                            <option value="Atom">Cosmos Hub (Atom)</option>
-                            <option value="Avalanche">Avalanche</option>
-                            <option value="Bitcoin">Bitcoin</option>
-                            <option value="Cardano">Cardano</option>
-                            <option value="Ethereum">Ethereum</option>
-                            <option value="Polygon">Polygon</option>
-                            <option value="Sand">Sand</option>
-                            <option value="Solana">Solana</option>
-                            <option value="Vechain">Vechain</option>
+                            <option value="Atom">(ATOM) Cosmos Hub</option>
+                            <option value="Avalanche">(AVAX) Avalanche</option>
+                            <option value="Bitcoin">(BTC) Bitcoin</option>
+                            <option value="Cardano">(ADA) Cardano</option>
+                            <option value="Chainlink">(LINK) Chainlink</option>
+                            <option value="Decentraland">(MANA) Decentraland</option>
+                            <option value="DOGE">(DOGE) DOGE</option>
+                            <option value="Ethereum">(ETH) Ethereum</option>
+                            <option value="Fantom">(FTM) Fantom</option>
+                            <option value="Litecoin">(LTC) Litecoin</option>
+                            <option value="Polkadot">(DOT) Polkadot</option>
+                            <option value="Polygon">(MATIC) Polygon</option>
+                            <option value="Sand">(SAND) The Sandbox</option>
+                            <option value="SHIB">(SHIB) Shiba Inu</option>
+                            <option value="Solana">(SOL) Solana</option>
+                            <option value="Tron">(TRX) Tron</option>
+                            <option value="Vechain">(VET) Vechain</option>
+                            <option value="XRP">(XRP) XRP</option>
+                        </select>
+                        <select *ngIf="assetType == 'ETFs'" (change)="getPriceInfo($event.target.value)" [(ngModel)]="newAsset.assetName" name="newAsset.assetName" required>
+                            <option value="BITW">(BITW) Bitwise 10 Crypto Index Units Beneficial Interest</option>
+                            <option value="QQQ">(QQQ) Invesco QQQ Trust Series 1</option>
+                            <option value="SPY">(SPY) SPDR S&P 500 ETF Trust</option>
+                            <option value="VOO">(VOO) Vanguard 500 Index Fund ETF</option>
                         </select>
                     </div>
                 </div>
@@ -49,7 +72,7 @@
                     </div>
                 </div>
                 <div class="assetButtons">
-                    <button class="buttonGreen" (click)="addAsset()">Go</button>
+                    <button class="buttonGreen" (click)="addAsset()">Add</button>
                     <button class="buttonRed" (click)="clearAssets()">Clear Assets</button>
                 </div>
             </div>
@@ -77,7 +100,7 @@
                 <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
                 <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
                 <div class="col"><h6>${{ asset['todayValue'] }}</h6> </div>
-                <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6> </div>
+                <div class="col"><h6>${{ asset['previousATHvalue'] }}</h6> </div>
             </div>
             <div class="row headerColumn" style="border-top: 3px solid black;">
                 <div class="col"><h6></h6></div>
@@ -118,7 +141,7 @@
     
                     <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px;">
                         <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
-                        <div class="col"><h6>${{ asset['previousALTvalue'] }}</h6></div>
+                        <div class="col"><h6>${{ asset['previousATHvalue'] }}</h6></div>
                     </div>
                 </div>
                 <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
