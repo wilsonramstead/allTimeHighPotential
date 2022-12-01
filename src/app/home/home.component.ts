@@ -70,8 +70,6 @@ export class HomeComponent implements OnInit {
   }
   addAsset() {
     this.newAsset.previousATHvalue = parseFloat(String(Number(this.newAsset.assetAmount) * Number(this.pricesDictionary[this.newAsset.assetName][0]))).toFixed(2);
-    console.log("Number(this.newAsset.assetAmount): ", Number(this.newAsset.assetAmount));
-    console.log("Number(this.pricesDictionary[this.newAsset.assetName][0]): ", Number(this.pricesDictionary[this.newAsset.assetName][0]));
     this.totalATHvalue = parseFloat(String(Number(this.totalATHvalue) + Number(this.newAsset.previousATHvalue))).toFixed(2);
     this.newAsset.todayAssetPrice = parseFloat(String(this.pricesDictionary[this.newAsset.assetName][1])).toFixed(2);
     this.newAsset.todayValue = parseFloat(String(this.newAsset.assetAmount * this.pricesDictionary[this.newAsset.assetName][1])).toFixed(2);
@@ -89,8 +87,6 @@ export class HomeComponent implements OnInit {
   }
   getPriceInfo(selectedOption) {
     this.http.get<any>('https://api.polygon.io/v2/aggs/ticker/' + this.pricesDictionary[selectedOption][2] + '/prev?adjusted=true&apiKey=ZniEFUGxWV3dk4HeEpD5vQoVE2J56qbc', {}).subscribe(data => {
-
-    console.log('data: ', data)
       this.pricesDictionary[selectedOption][1] = data.results[0]['c']; // this is returning the close price of previous day close price, api reference: https://polygon.io/docs/crypto/get_v2_aggs_ticker__cryptoticker__prev
     });
    }

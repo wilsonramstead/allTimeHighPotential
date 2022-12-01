@@ -80,9 +80,10 @@
         <!-- <hr> -->
         <br>
         <h4 class="fancyLabel">Your Asset List:</h4>
-            <div class="innerBoxText">
-                <p>"Potential Value" = ATH Price * Your Holding Amount</p>
-                <p>This app shows your holding amount current value, and holding amount value if the assets reached their previous all time high price.</p>
+            <div class="innerBoxText" *ngIf="allAssets.length == 0">
+                <p style="text-decoration: underline;">This app shows the current value of your holding amount, and also the holding amount value if the assets reached their previous all time high price.</p>
+                <p><strong>"Current Value"</strong> = Current Price * Your Holding Amount</p>
+                <p><strong>"Potential Value"</strong> = ATH Price * Your Holding Amount</p>
             </div>
         <!--  Normal container -->
         <div *ngIf="mobile == 'no'" class="container">
