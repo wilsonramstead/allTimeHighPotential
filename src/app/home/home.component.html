@@ -98,17 +98,17 @@
                 <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
                 <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
                 <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
-                <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
-                <div class="col"><h6>${{ asset['todayValue'] }}</h6> </div>
-                <div class="col"><h6>${{ asset['previousATHvalue'] }}</h6> </div>
+                <div class="col blue"><h6>{{ asset['assetAmount'] }}</h6></div>
+                <div class="col blue"><h6>${{ asset['todayValue'] }}</h6> </div>
+                <div class="col blue"><h6>${{ asset['previousATHvalue'] }}</h6> </div>
             </div>
             <div class="row headerColumn" style="border-top: 3px solid black;">
                 <div class="col"><h6></h6></div>
                 <div class="col"><h6></h6></div>
                 <div class="col"><h6></h6></div>
                 <div class="col"><h6>Total:</h6></div>
-                <div class="col"><h6>{{ totalCurrentValue }}</h6></div>
-                <div class="col"><h6>{{ totalATHvalue }}</h6></div>
+                <div class="col green"><h6>{{ totalCurrentValue }}</h6></div>
+                <div class="col green"><h6>{{ totalATHvalue }}</h6></div>
             </div>
         </div>
         <!-- Mobile container -->
@@ -131,26 +131,26 @@
     
                     <div class="row">
                         <div class="col" style="border-right: 2px solid black"><h6>Share Amount</h6></div>
-                        <div class="col"><h6>{{ asset['assetAmount'] }}</h6></div>
+                        <div class="col blue"><h6>{{ asset['assetAmount'] }}</h6></div>
                     </div>
     
                     <div class="row">
                         <div class="col" style="border-right: 2px solid black"><h6>Current Value</h6></div>
-                        <div class="col"><h6>${{ asset['todayValue'] }}</h6></div>
+                        <div class="col blue"><h6>${{ asset['todayValue'] }}</h6></div>
                     </div>
     
                     <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px;">
                         <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
-                        <div class="col"><h6>${{ asset['previousATHvalue'] }}</h6></div>
+                        <div class="col blue"><h6>${{ asset['previousATHvalue'] }}</h6></div>
                     </div>
                 </div>
                 <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
                     <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Current Value</strong></h6></div>
-                    <div class="col"><h6><strong>${{ totalCurrentValue }}</strong></h6></div>
+                    <div class="col green"><h6><strong>${{ totalCurrentValue }}</strong></h6></div>
                 </div>
                 <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
                     <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Potential Value</strong></h6></div>
-                    <div class="col"><h6><strong>${{ totalATHvalue }}</strong></h6></div>
+                    <div class="col green"><h6><strong>${{ totalATHvalue }}</strong></h6></div>
                 </div>
             </div>
         </div>
