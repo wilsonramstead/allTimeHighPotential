@@ -91,6 +91,7 @@
                 <div class="col"><h6>Name</h6></div>
                 <div class="col"><h6>Current Price</h6></div>
                 <div class="col"><h6>ATH Price</h6></div>
+                <div class="col"><h6>ATH Price Date</h6></div>
                 <div class="col"><h6>Share Amount</h6></div>
                 <div class="col"><h6>Current Value</h6> </div>
                 <div class="col"><h6>Potential Value (ATH)</h6></div>
@@ -99,6 +100,7 @@
                 <div class="col"><h6><strong>{{ asset['assetName'] }}</strong></h6></div>
                 <div class="col"><h6>${{ asset['todayAssetPrice'] }}</h6></div>
                 <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
+                <div class="col"><h6>{{ pricesDictionary[asset['assetName']][3] }}</h6></div>
                 <div class="col blue"><h6>{{ asset['assetAmount'] }}</h6></div>
                 <div class="col blue"><h6>${{ asset['todayValue'] }}</h6> </div>
                 <div class="col blue"><h6>${{ asset['previousATHvalue'] }}</h6> </div>
@@ -127,6 +129,11 @@
                 <div class="row">
                     <div class="col" style="border-right: 2px solid black"><h6>ATH Price</h6></div>
                     <div class="col"><h6>${{ pricesDictionary[asset['assetName']][0] }}</h6></div>
+                </div>
+
+                <div class="row">
+                    <div class="col" style="border-right: 2px solid black"><h6>ATH Price Date</h6></div>
+                    <div class="col"><h6>{{ pricesDictionary[asset['assetName']][3] }}</h6></div>
                 </div>
 
                 <div class="row">
