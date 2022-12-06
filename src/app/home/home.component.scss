@@ -1,13 +1,37 @@
+#removeButton {
+  background-color: #ff7373ee;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px;
+  height: 28px;
+  width: 28px;
+  color: white;
+}
+#mobileRemoveButton {
+  background-color: #ff7373ee;
+  border: 2px solid black;
+  border-radius: 10px;
+  float: right;
+  padding: 0px;
+  margin-top: 1px;
+  height: 28px;
+  width: 28px;
+  color: white;
+}
+#removeAssetCol {
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
 @media only screen and (min-width: 321px) {
   .homeContainer {
     height: 98vh;
     width: 100%;
     // background: linear-gradient(to left, #6be7fd, #e7defd);
 
-    border: 2px solid white;
+    // border: 2px solid white;
 
-    // border: 5px solid white;
-    // border-radius: 10px;
     overflow: auto;
     padding-bottom: 2%;
   }
@@ -170,6 +194,10 @@
 @media only screen and (min-width: 641px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 
+  .homeContainer {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
   .mobileContainer {
     visibility: hidden;
   }

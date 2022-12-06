@@ -100,4 +100,7 @@ export class HomeComponent implements OnInit {
            this.mobile = 'yes'
          }
    }
+   removeAsset(index) {
+    this.allAssets.splice(index,1);
+   }
 }
