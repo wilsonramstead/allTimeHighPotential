@@ -105,7 +105,7 @@
                 <div class="col blue"><h6>{{ asset['assetAmount'] }}</h6></div>
                 <div class="col blue"><h6>${{ asset['todayValue'] }}</h6> </div>
                 <div class="col blue"><h6>${{ asset['previousATHvalue'] }}</h6> </div>
-                <div id="removeAssetCol"><button id="removeButton" (click)="removeAsset(i)">x</button></div>
+                <div id="removeAssetCol"><button id="removeButton" (click)="removeAsset(i, asset['todayValue'], asset['previousATHvalue'])">x</button></div>
             </div>
             <div class="row headerColumn" style="border-top: 3px solid black;">
                 <div class="col"><h6></h6></div>
@@ -123,7 +123,7 @@
             <div *ngFor="let asset of allAssets; let i = index">
                 <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
                     <div class="col" style="border-right: 2px solid black"><h6><strong>Name</strong></h6></div>
-                    <div class="col"><h6 style="display: inline-block;"><strong>{{ asset['assetName'] }}</strong></h6> <button id="mobileRemoveButton" (click)="removeAsset(i)">x</button></div>
+                    <!-- <div class="col"><h6 style="display: inline-block;"><strong>{{ asset['assetName'] }}</strong></h6> <button id="mobileRemoveButton" (click)="removeAsset(i)">x</button></div> -->
                 </div>
                 <div class="row">
                     <div class="col" style="border-right: 2px solid black"><h6>Current Price</h6></div>
@@ -149,10 +149,6 @@
                     <div class="col" style="border-right: 2px solid black"><h6>Potential Value</h6></div>
                     <div class="col blue"><h6>${{ asset['previousATHvalue'] }}</h6></div>
                 </div>
-                <!-- <div class="row">
-                    <div class="col" style="border-right: 2px solid black"><h6>Remove Asset</h6></div>
-                    <div class="col"><button id="mobileRemoveButton" (click)="removeAsset(i)">x</button></div>
-                </div> -->
             </div>
             <div class="row" style="border-bottom: 2px solid black; padding-bottom: 1px; background: rgba(255, 255, 255, 0.466);">
                 <div class="col" style="border-right: 2px solid black;"><h6><strong>Total Current Value</strong></h6></div>

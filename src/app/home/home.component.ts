@@ -100,7 +100,9 @@ export class HomeComponent implements OnInit {
            this.mobile = 'yes'
          }
    }
-   removeAsset(index) {
+   removeAsset(index, currentValue, potentialValue) {
+    this.totalCurrentValue = parseFloat(String(Number(this.totalCurrentValue) - Number(currentValue))).toFixed(2);
+    this.totalATHvalue = parseFloat(String(Number(this.totalATHvalue) - Number(potentialValue))).toFixed(2);
     this.allAssets.splice(index,1);
    }
 }
