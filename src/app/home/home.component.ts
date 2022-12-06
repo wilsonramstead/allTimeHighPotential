@@ -65,7 +65,6 @@ export class HomeComponent implements OnInit {
       'VOO': [439.25, 0, 'VOO', 'Jan 3, 2021'],
       'XRP': [3.40, 0, 'X:XRPUSD', 'Jan 07, 2018']
     }
-
     this.newAsset = { 'assetName': '', 'assetAmount': 0, 'todayValue': 0, 'previousATHvalue': 0,}
   }
   addAsset() {
